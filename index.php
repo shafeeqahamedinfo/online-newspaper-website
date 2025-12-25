@@ -15,7 +15,48 @@ require_once 'config.php';
             padding: 0;
             box-sizing: border-box;
         }
+        @media (max-width: 768px) {
+            
+            .newspaper-title {
+            font-size: 2.5rem;
+            }
 
+            .headline {
+            font-size: 1.8rem;
+            }
+
+            .breaking-news {
+            font-size: 1.2rem;
+            }
+
+            .featured-image {
+            height: 250px;
+            }
+
+            .article-title {
+            font-size: 1.2rem;
+            }
+
+            .article-excerpt {
+            font-size: 0.9rem;
+            }
+
+            .sidebar {
+            padding-left: 10px;
+            }
+
+            .sidebar-title {
+            font-size: 1.3rem;
+            }
+
+            .category-list li {
+            padding: 5px 0;
+            }
+
+            .footer {
+            font-size: 0.9rem;
+            }
+        }
         body {
             font-family: 'Times New Roman', serif;
             background-color: #f5f5f5;
@@ -24,7 +65,7 @@ require_once 'config.php';
         }
 
         .newspaper-container {
-            max-width: auto;
+            max-width: 2200px; /* Set a maximum width for better responsiveness */
             margin: 0 auto;
             background: white;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -214,10 +255,11 @@ require_once 'config.php';
         <!-- Header -->
 
         <header class="header">
-            <div class="admin-panel" style="margin-left: 1200px;">
+            
+            <div class="newspaper-title"><?php echo SITE_TITLE; ?></div>
+            <div class="admin-panel" style="margin-left: auto;">
                     <a href="admin/login.php" style="color: blue; font-weight: bold; text-decoration: none;">LOGIN</a>
             </div>
-            <div class="newspaper-title"><?php echo SITE_TITLE; ?></div>
             <div class="newspaper-motto">"Truth, Integrity, and Quality Journalism"</div>
             <div class="date-line">
                 <?php
@@ -286,7 +328,7 @@ require_once 'config.php';
                                 <?php echo date('h:i A', strtotime($news_row['published_at'])); ?> |
                                 <?php echo $news_row['views']; ?> views
                             </div>
-                            <a href="../newspaper/admin/article.php?id=<?php echo $news_row['id']; ?>" class="read-more">Continue Reading →</a>
+                            <a href="../newspaper/article.php?id=<?php echo $news_row['id']; ?>" class="read-more">Continue Reading →</a>
                         </div>
                     <?php endwhile; ?>
                 </div>
